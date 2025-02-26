@@ -1,0 +1,12 @@
+function patternPrinting(num){
+  for(let i=0;i<num;i++){
+    pattern=""
+    for(let j=0;j<num;j++){
+      if(i==0 || i==num-1 || j==0)
+      pattern+="* "
+    }
+    console.log(pattern)
+  }
+  return ""
+}
+patternPrinting(6)

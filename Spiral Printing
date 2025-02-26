@@ -1,0 +1,46 @@
+let N=parseInt(prompt())
+let M=parseInt(prompt())
+let array=[]
+for(let i=0;i<N;i++){
+  array[i]=[]
+  for(let j=0;j<M;j++){
+    array[i][j]=parseInt(prompt())
+  }
+}
+
+
+function spiralPrint(arr){
+  let top=0, bottom=N-1, left=0, right=M-1;
+  let result=[];
+  while(top<=bottom && left<=right){
+    for(let i=bottom;i>=top;i--){
+      result.push(arr[i][left])
+    }
+    left++
+    
+    for(let j=left;j<=right;j++){
+      result.push(arr[top][j])
+    }
+    top++
+    
+    if(left<=right){
+      for(let i=top;i<=bottom;i++){
+        result.push(arr[i][right])
+      }
+      right--
+    }
+    
+    if(top<=bottom){
+      for(let j=right;j>=left;j--){
+        result.push(arr[bottom][j])
+      }
+      bottom--
+    }
+  }
+  return result.join(" ")
+}
+
+
+console.log(spiralPrint(array))
+
+

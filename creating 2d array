@@ -1,0 +1,14 @@
+let N=parseInt(prompt())
+let M=parseInt(prompt())
+let arr=[]
+let initial=1
+for(let i=0;i<N;i++){
+  arr[i]=[]
+  for(let j=0;j<M;j++){
+    arr[i][j]=initial
+    initial++
+  }
+}
+for(let i=0;i<N;i++){
+  console.log(arr[i])
+}

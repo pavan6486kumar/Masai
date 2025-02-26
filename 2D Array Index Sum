@@ -1,0 +1,12 @@
+let N=3
+let M=2
+let arr=[]
+for(let i=0;i<N;i++){
+  arr[i]=[]
+  for(let j=0;j<M;j++){
+    arr[i][j]=i+j
+  }
+}
+for(let i=0;i<N;i++){
+  console.log(arr[i])
+}

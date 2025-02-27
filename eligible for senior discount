@@ -1,0 +1,4 @@
+let eligible=(age)=>{
+  return age>=60 ? "Eligible for Senior Discount" : age<=0 ? "Invalid Age" : "Not Eligible for Senior Discount"
+}
+console.log(eligible(0))

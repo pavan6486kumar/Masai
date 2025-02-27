@@ -1,0 +1,11 @@
+let scores = { 
+  pavan: 92,
+  ravi: 87,
+  kiran: 68
+};
+for (let key in scores) {
+  scores[key] = scores[key] >= 90 ? "A" : scores[key] >= 80 ? "B" : scores[key] >= 70 ? "C" : scores[key] >= 60 ? "D" : "F";
+}
+for (let key in scores) {
+  console.log(key + " : " + scores[key]);
+}

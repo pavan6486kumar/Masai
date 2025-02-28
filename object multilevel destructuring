@@ -1,0 +1,5 @@
+const people = [ { name: "Alice", address: { city: "New York", street: { streetname: "Broadway", number: 123 } } }, { name: "Bob", address: { city: "Los Angeles", street: { streetname: "Sunset Boulevard", number: 456 } } } ];
+for(let i of people){
+  let{name,address:{city,street:{streetname}}}=i
+  console.log(`${name} lives in ${city} on ${streetname}`)
+}

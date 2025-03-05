@@ -1,0 +1,10 @@
+let age=21
+let displayAge=()=>{
+  console.log(age)
+  let updateAge=()=>{
+    age=22
+    console.log(age)
+  }
+  updateAge()
+}
+displayAge()

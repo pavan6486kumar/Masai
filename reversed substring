@@ -1,0 +1,3 @@
+let str="malayalam"
+let sliced=str.slice(2,4)
+console.log(sliced.split("").reverse().join(""))

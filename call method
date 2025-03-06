@@ -1,0 +1,9 @@
+function info(name,age){
+  return `${this.name} is ${this.age} years old`
+}
+
+let personInfo={
+  name:"pavan",
+  age:21
+}
+console.log(info.call(personInfo))

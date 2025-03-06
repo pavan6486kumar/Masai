@@ -1,11 +1,19 @@
 let pine_tree=(tree_length)=>{
-    for(let i=1;i<tree_length;i++){
+    for(let i=1;i<=tree_length;i++){
         res=""
-        for(let j=1;j<tree_length-i;j++){
-            res+=" "
+        if(i<tree_length){
+          for(let j=1;j<tree_length-i;j++){
+              res+=" "
+          }
+          for(let k=1;k<=i*2-1;k++){
+              res+="*"
+          }
         }
-        for(let k=1;k<=i*2-1;k++){
-            res+="*"
+        else{
+          for(let l=1;l<tree_length-1;l++){
+              res+=" "
+          }
+          res+="|"
         }
         console.log(res)
     }

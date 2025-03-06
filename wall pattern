@@ -1,0 +1,13 @@
+let wall_pattern=(len,wid)=>{
+    for(let i=0;i<len;i++){
+        if(i%2==0)
+        res=""
+        else
+        res=" "
+        for(let j=0;j<wid;j++){
+            res+="[] "
+        }
+        console.log(res)
+    }
+}
+wall_pattern(4,5)

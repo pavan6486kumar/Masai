@@ -1,0 +1,21 @@
+let bank=(amt)=>{
+  let balance=amt
+  return{
+    deposite:(amt)=>{
+      balance+=amt;
+      return balance;
+    },
+    withdraw:(amt)=>{
+      if(amt>balance){
+        return "insufficient funds"
+      }
+      balance-=amt;
+      return balance;
+    },
+    getbalance: () => balance
+  }
+}
+let account=bank(50)
+console.log(account.deposite(50))
+console.log(account.withdraw(40))
+console.log(account.getbalance())

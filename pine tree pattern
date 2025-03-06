@@ -1,0 +1,13 @@
+let pine_tree=(tree_length)=>{
+    for(let i=1;i<tree_length;i++){
+        res=""
+        for(let j=1;j<tree_length-i;j++){
+            res+=" "
+        }
+        for(let k=1;k<=i*2-1;k++){
+            res+="*"
+        }
+        console.log(res)
+    }
+}
+pine_tree(5)

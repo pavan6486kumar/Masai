@@ -1,0 +1,3 @@
+let names=["Charlie", "Alice", "Bob"]
+let sorted=names.sort((a,b) => a.localeCompare(b))
+console.log(sorted)

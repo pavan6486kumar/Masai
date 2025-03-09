@@ -1,0 +1,52 @@
+function createOrderManager(){
+    let orders=[]
+    return {
+        
+        addOrder(id,customerName,items,status,createdAt){
+            return orders.push({
+                id:id,
+                customerName:customerName,
+                items:{
+                    name:items[0].name,
+                    price:items[0].price,
+                    quantity:items[0].quantity
+                },
+                status:status,
+                createdAt:createdAt
+            }
+            orders.push(arr)
+        }),
+        updateOrders(id,newStatus){
+            orders.forEach(order=>{
+                if(id==order.id){
+                    this.order.status=this.newStatus
+                }
+                else{
+                    console.log("Id not found")
+                }
+            })
+        },
+        filterOrders(Status){
+            return orders.filter(order=> order.status==Status)
+        },
+        sortOrders(){
+            return orders.sort((a,b)=>{
+                a.status.localeComare(b.status)
+            })
+        },
+        orderSummary(){
+            return orders.reduce((acc,num)=>{
+                acc+=num.items.price
+            })
+        },
+        exportOrders(){
+            return JSON.stringify(orders)
+        }
+    }
+}
+
+const manager = createOrderManager();
+manager.addOrder({ id: 1, customerName: "Alice", items: [{ name: "Laptop", price: 1000, quantity: 1 }], status: "pending", createdAt: new Date("2024-03-01") });
+manager.addOrder({ id: 2, customerName: "Bob", items: [{ name: "Phone", price: 500, quantity: 2 }], status: "shipped", createdAt: new Date("2024-03-02") });
+console.log(manager.filterOrders("pending"));
+console.log(manager.orderSummary());

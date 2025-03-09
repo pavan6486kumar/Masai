@@ -1,0 +1,23 @@
+function createFunctionRegistery(){
+    return {
+        registerFunction(name,fun){
+            let name=()=>{
+                return fun
+            }
+        },
+        executeFunction(name,args,context=null){
+            return name.bind(args)
+        },
+        mapFunction(name,dataArray){
+            if(this.registerFunction.name==name){
+                dataArray.map(name)
+            }
+        },
+        exportRegistery(){
+            return JSON.stringify(this.registerFunction)
+        }
+    }
+}
+const registry = createFunctionRegistry();
+registry.registerFunction("double", x => x * 2);
+console.log(registry.executeFunction("double", [5]));

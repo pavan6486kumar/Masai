@@ -1,0 +1,27 @@
+function createOTPSystem() {
+    let currentOTP = null
+    
+    function generateOTP() {
+        currentOTP = Math.floor(100000 + Math.random() * 900000)
+        return `Your OTP is: ${currentOTP}`
+    }
+    
+    function getOTP() {
+        if (currentOTP === null) {
+            return "OTP expired"
+        }
+        const otp = currentOTP
+        currentOTP = null
+        return otp
+    }
+    
+    return { generateOTP, getOTP }
+}
+
+const otpSystem = createOTPSystem()
+console.log(otpSystem.generateOTP())
+console.log(otpSystem.getOTP())
+console.log(otpSystem.getOTP())
+console.log(otpSystem.generateOTP())
+console.log(otpSystem.getOTP())  
+console.log(otpSystem.getOTP())

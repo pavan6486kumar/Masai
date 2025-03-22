@@ -1,0 +1,72 @@
+function Book(title, author) {
+    this.title = title
+    this.author = author
+    this.isAvailable = true
+}
+
+module.exports = Book
+function Member(name) {
+    this.name = name
+    this.borrowedBooks = []
+}
+
+Member.prototype.borrowBook = function(book) {
+    if (this.borrowedBooks.length >= 3) {
+        console.log(`${this.name} cannot borrow more than 3 books`)
+        return
+    }
+
+    if (book.isAvailable) {
+        book.isAvailable = false
+        this.borrowedBooks.push(book.title)
+        console.log(`${this.name} borrowed "${book.title}"`)
+    } else {
+        console.log(`"${book.title}" is already borrowed`)
+    }
+}
+
+module.exports = Member
+const Member = require('./Member')
+
+function PremiumMember(name) {
+    Member.call(this, name)
+    this.specialCollectionAccess = true
+}
+
+PremiumMember.prototype = Object.create(Member.prototype)
+PremiumMember.prototype.constructor = PremiumMember
+
+PremiumMember.prototype.borrowBook = function(book) {
+    if (this.borrowedBooks.length >= 5) {
+        console.log(`${this.name} cannot borrow more than 5 books`)
+        return
+    }
+
+    Member.prototype.borrowBook.call(this, book)
+}
+
+module.exports = PremiumMember
+const Book = require('./Book')
+const Member = require('./Member')
+const PremiumMember = require('./PremiumMember')
+
+const book1 = new Book("The Hobbit", "J.R.R. Tolkien")
+const book2 = new Book("1984", "George Orwell")
+const book3 = new Book("To Kill a Mockingbird", "Harper Lee")
+const book4 = new Book("Moby Dick", "Herman Melville")
+const book5 = new Book("Pride and Prejudice", "Jane Austen")
+const book6 = new Book("The Great Gatsby", "F. Scott Fitzgerald")
+
+const member1 = new Member("Alice")
+const premiumMember1 = new PremiumMember("Bob")
+
+const borrowForAlice = member1.borrowBook.bind(member1)
+const borrowForBob = premiumMember1.borrowBook.bind(premiumMember1)
+
+borrowForAlice(book1)
+borrowForAlice(book2)
+borrowForAlice(book3)
+borrowForAlice(book4)
+
+borrowForBob(book5)
+borrowForBob(book6)
